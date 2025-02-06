@@ -2,9 +2,24 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    -- config = function()
-    --   vim.cmd("colorscheme rose-pine")
-    -- end,
+    opts = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("rose-pine").setup({
+        -- styles = {
+        --   transparency = true,
+        -- },
+      })
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = function()
+      require("catppuccin").setup({
+        -- transparent_background = true,
+      })
+    end,
   },
   {
     "Mofiqul/dracula.nvim",
@@ -15,6 +30,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     opts = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("kanagawa").setup({
         colors = {
           theme = {
@@ -25,13 +41,35 @@ return {
             },
           },
         },
+        -- transparent = true,
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+            FloatTitle = { bg = "none" },
+
+            -- Save an hlgroup with dark background and dimmed foreground
+            -- so that you can use it where your still want darker windows.
+            -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+
+            -- Popular plugins that open floats will link to NormalFloat by default;
+            -- set their background accordingly if you wish to keep them dark and borderless
+            LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          }
+        end,
       })
     end,
   },
   {
+    "Mofiqul/vscode.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "lunar",
+      colorscheme = "catppuccin",
     },
   },
 }
