@@ -35,9 +35,13 @@ return {
         ["q"] = "quit",
       },
     })
-
-    vim.api.nvim_set_hl(0, "UndotreeDiffAdded", { fg = "#9ece6a" })
-    vim.api.nvim_set_hl(0, "UndotreeDiffRemoved", { fg = "#db4b4b" })
+    if vim.g.colors_name == "lunar" then
+      vim.api.nvim_set_hl(0, "UndotreeDiffAdded", { fg = "#9ece6a" })
+      vim.api.nvim_set_hl(0, "UndotreeDiffRemoved", { fg = "#db4b4b" })
+    elseif vim.g.colors_name == "tokyonight" then
+      vim.api.nvim_set_hl(0, "UndotreeDiffAdded", { fg = "#B6D885" })
+      vim.api.nvim_set_hl(0, "UndotreeDiffRemoved", { fg = "#E26A75" })
+    end
   end,
   keys = { -- load the plugin only when using it's keybinding:
     { "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>" },
