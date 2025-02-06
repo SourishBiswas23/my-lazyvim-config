@@ -17,5 +17,5 @@ for i = 1, 9 do
   map({ "n", "v", "i" }, "<M-" .. i .. ">", "<Cmd>BufferLineGoToBuffer" .. i .. "<CR>")
 end
 
-map({ "n", "v", "i" }, "<leader>fs", "<cmd>FzfLua grep_visual<CR>", { desc = "Grep" })
-map({ "n", "v", "i" }, "<leader>/", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
+map({ "n", "v" }, "<leader>fs", "<cmd>FzfLua grep_visual<CR>", { desc = "Grep" })
+map({ "n", "v" }, "<leader>/", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
