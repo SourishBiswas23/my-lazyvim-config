@@ -1,0 +1,9 @@
+return {
+  "rachartier/tiny-inline-diagnostic.nvim",
+  event = "VeryLazy", -- Or `LspAttach`
+  priority = 1000, -- needs to be loaded in first
+  config = function()
+    require("tiny-inline-diagnostic").setup()
+    -- the virtual text is being removed in the nvimLspconfig.lua file
+  end,
+}
