@@ -3,11 +3,15 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     opts = function()
+      local isTransparent = false
+      if not vim.g.neovide then
+        isTransparent = true
+      end
       ---@diagnostic disable-next-line: missing-fields
       require("rose-pine").setup({
-        -- styles = {
-        --   transparency = true,
-        -- },
+        styles = {
+          transparency = isTransparent,
+        },
       })
     end,
   },
@@ -16,9 +20,13 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = function()
-      require("catppuccin").setup({
-        -- transparent_background = true,
-      })
+      local isTransparent = false
+      if not vim.g.neovide then
+        isTransparent = true
+      end
+      local opts = {}
+      opts.transparent_background = isTransparent
+      return opts
     end,
   },
   {
@@ -30,6 +38,10 @@ return {
   {
     "rebelot/kanagawa.nvim",
     opts = function()
+      local isTransparent = false
+      if not vim.g.neovide then
+        isTransparent = true
+      end
       ---@diagnostic disable-next-line: missing-fields
       require("kanagawa").setup({
         colors = {
@@ -41,7 +53,7 @@ return {
             },
           },
         },
-        -- transparent = true,
+        transparent = isTransparent,
         overrides = function(colors)
           local theme = colors.theme
           return {
