@@ -9,6 +9,7 @@ return {
       "stylua",
       "clang-format",
       "black",
+      "emmet-language-server",
     },
   },
 }
