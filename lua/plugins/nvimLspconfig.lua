@@ -11,10 +11,9 @@ return {
         "javascriptreact",
         "html",
         "css",
-        "javascript",
-        "typescript",
+        -- "javascript",
+        -- "typescript",
         "vue",
-        "edge",
       },
     }
   end,
