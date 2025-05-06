@@ -1,12 +1,12 @@
 return {
   "conform.nvim",
   opts = function(_, opts)
-    opts.formatters_by_ft.javascript = { "prettierd" }
-    opts.formatters_by_ft.typescript = { "prettierd" }
-    opts.formatters_by_ft.javascriptreact = { "prettierd", "rustywind" }
-    opts.formatters_by_ft.typescriptreact = { "prettierd", "rustywind" }
-    opts.formatters_by_ft.svelte = { "prettierd" }
-    opts.formatters_by_ft.vue = { "prettierd", "rustywind" }
+    opts.formatters_by_ft.javascript = { "prettierd", "eslint_d" }
+    opts.formatters_by_ft.typescript = { "prettierd", "eslint_d" }
+    opts.formatters_by_ft.javascriptreact = { "prettierd", "rustywind", "eslint_d" }
+    opts.formatters_by_ft.typescriptreact = { "prettierd", "rustywind", "eslint_d" }
+    opts.formatters_by_ft.svelte = { "prettierd", "eslint_d" }
+    opts.formatters_by_ft.vue = { "prettierd", "rustywind", "eslint_d" }
     opts.formatters_by_ft.css = { "prettierd" }
     opts.formatters_by_ft.html = { "prettierd" }
     opts.formatters_by_ft.json = { "prettierd" }
@@ -20,5 +20,6 @@ return {
     opts.formatters_by_ft.c = { "clang-format" }
     opts.formatters_by_ft.cpp = { "clang-format" }
     opts.formatters_by_ft.python = { "black" }
+    opts.formatters_by_ft.glsl = { "glsl_analyzer" }
   end,
 }
