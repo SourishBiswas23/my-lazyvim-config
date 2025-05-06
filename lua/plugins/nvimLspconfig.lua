@@ -16,5 +16,6 @@ return {
         "vue",
       },
     }
+    opts.servers.glsl_analyzer = {}
   end,
 }
