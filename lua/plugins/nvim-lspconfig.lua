@@ -17,5 +17,13 @@ return {
       },
     }
     opts.servers.glsl_analyzer = {}
+
+    -- godot lsp works only when godot is running
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    local gdscript_config = {
+      capabilities = capabilities,
+      settings = {},
+    }
+    require("lspconfig").gdscript.setup(gdscript_config)
   end,
 }
